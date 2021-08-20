@@ -2,7 +2,7 @@ blueprint:
   name: Homematic keypress -> play SONOS favorite
   description: If a Homematic key is pressed, the selected favorite will be played on the selected SONOS device
   domain: automation
-  source_url: https://github.com/FreeTimeCoder82/home-assistant-blueprints/blob/dev/homematic_keypress_play_sonos_favorite.yaml
+  source_url: https://github.com/FreeTimeCoder82/home-assistant-blueprints/blob/main/homematic_keypress_play_sonos_favorite.yaml
   input:
     channel:
       name: Channel

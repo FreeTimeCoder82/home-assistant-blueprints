@@ -2,7 +2,7 @@ blueprint:
   name: Homematic keypress -> toggle light
   description: If a Homematic key is pressed, toggle selected light
   domain: automation
-  source_url: https://github.com/FreeTimeCoder82/home-assistant-blueprints/blob/dev/homematic_keypress_toggle_light.yaml
+  source_url: https://github.com/FreeTimeCoder82/home-assistant-blueprints/blob/main/homematic_keypress_toggle_light.yaml
   input:
     channel:
       name: Channel of the switch
