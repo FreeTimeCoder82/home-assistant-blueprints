@@ -1,0 +1,46 @@
+blueprint:
+  name: Homematic keypress -> play SONOS favorite
+  description: If a Homematic key is pressed, the selected favorite will be played on the selected SONOS device
+  domain: automation
+  source_url: https://github.com/FreeTimeCoder82/home-assistant-blueprints
+  input:
+    channel:
+      name: Channel
+      description: Channel of the Homematic switch
+      default: 1
+      selector:
+        number:
+          min: 1
+          max: 6
+          mode: slider
+          step: 1
+    serialnumber:
+      name: Serialnumber
+      description: Serialnumber of the homematic switch
+      selector:
+        text:
+    sonos_device:
+      name: SONOS device
+      description: SONOS device where the favorite should be played
+      selector:
+        entity:
+          domain: media_player
+    favorite_name:
+      name: Favorite name
+      description: Favorite name in SONOS favorite list
+      selector:
+        text:
+
+trigger:
+  - platform: event
+    event_type: homematic.keypress
+    event_data:
+      name: !input serialnumber
+      channel: !input channel
+      param: PRESS_SHORT
+
+action:
+  - service: media_player.select_source
+    data:
+      entity_id: !input sonos_device
+      source: !input favorite_name
